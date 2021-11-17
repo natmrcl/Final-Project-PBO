@@ -1,6 +1,6 @@
 # Final-Project-PBO
 
-Anggota Kelompok :
+*Anggota Kelompok :*
 1. Mohammad Firman Fardiansyah (5025201109)
 2. Yusron Nugroho Aji (5025201138)
 3. Natya Madya Marciola (5025201238)
