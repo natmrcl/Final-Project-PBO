@@ -27,6 +27,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnAbout" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                   <Component id="btnQuit" min="-2" pref="162" max="-2" attributes="0"/>
                   <Component id="btnLeaderboard" min="-2" pref="162" max="-2" attributes="0"/>
                   <Component id="btnStart" min="-2" pref="162" max="-2" attributes="0"/>
@@ -42,7 +43,9 @@
               <Component id="btnStart" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnLeaderboard" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnAbout" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Component id="btnQuit" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -72,6 +75,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuitActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAbout">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="About"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAboutActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

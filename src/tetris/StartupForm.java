@@ -30,6 +30,7 @@ public class StartupForm extends javax.swing.JFrame {
         btnStart = new javax.swing.JButton();
         btnLeaderboard = new javax.swing.JButton();
         btnQuit = new javax.swing.JButton();
+        btnAbout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -55,6 +56,13 @@ public class StartupForm extends javax.swing.JFrame {
             }
         });
 
+        btnAbout.setText("About");
+        btnAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAboutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,6 +70,7 @@ public class StartupForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(115, 115, 115)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnQuit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLeaderboard, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -74,7 +83,9 @@ public class StartupForm extends javax.swing.JFrame {
                 .addComponent(btnStart)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLeaderboard)
-                .addGap(51, 51, 51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAbout)
+                .addGap(13, 13, 13)
                 .addComponent(btnQuit)
                 .addContainerGap())
         );
@@ -96,6 +107,10 @@ public class StartupForm extends javax.swing.JFrame {
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnQuitActionPerformed
+
+    private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAboutActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAboutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,6 +148,7 @@ public class StartupForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbout;
     private javax.swing.JButton btnLeaderboard;
     private javax.swing.JButton btnQuit;
     private javax.swing.JButton btnStart;
