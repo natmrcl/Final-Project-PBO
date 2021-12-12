@@ -10,6 +10,7 @@ import javax.swing.KeyStroke;
 public class GameForm extends JFrame {
 
     private GameArea ga;
+    private GameThread gt;
     
     public GameForm() {
         initComponents();
@@ -18,7 +19,7 @@ public class GameForm extends JFrame {
         this.add(ga);
         
         initControls();
-        startGame();
+//        startGame();
     }
     
     private void initControls() {
@@ -61,7 +62,9 @@ public class GameForm extends JFrame {
     
     
     public void startGame(){
-        new GameThread(ga, this).start();
+        ga.initBackgroundArray();
+        gt = new GameThread(ga, this);
+        gt.start();
     }
     
     public void updateScore(int score){
@@ -79,18 +82,19 @@ public class GameForm extends JFrame {
         gameAreaPlaceHolder = new javax.swing.JPanel();
         scoreDisplay = new javax.swing.JLabel();
         levelDisplay = new javax.swing.JLabel();
+        btnMainMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         gameAreaPlaceHolder.setBackground(new java.awt.Color(238, 238, 238));
-        gameAreaPlaceHolder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        gameAreaPlaceHolder.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         gameAreaPlaceHolder.setPreferredSize(new java.awt.Dimension(200, 300));
 
         javax.swing.GroupLayout gameAreaPlaceHolderLayout = new javax.swing.GroupLayout(gameAreaPlaceHolder);
         gameAreaPlaceHolder.setLayout(gameAreaPlaceHolderLayout);
         gameAreaPlaceHolderLayout.setHorizontalGroup(
             gameAreaPlaceHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 198, Short.MAX_VALUE)
+            .addGap(0, 201, Short.MAX_VALUE)
         );
         gameAreaPlaceHolderLayout.setVerticalGroup(
             gameAreaPlaceHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,34 +105,53 @@ public class GameForm extends JFrame {
 
         levelDisplay.setText("Level : 1");
 
+        btnMainMenu.setText("Main Menu");
+        btnMainMenu.setFocusable(false);
+        btnMainMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMainMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
-                .addComponent(gameAreaPlaceHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(levelDisplay)
-                    .addComponent(scoreDisplay))
-                .addGap(64, 64, 64))
+                .addGap(27, 27, 27)
+                .addComponent(btnMainMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(gameAreaPlaceHolder, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(levelDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scoreDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(gameAreaPlaceHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scoreDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(levelDisplay)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(scoreDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(levelDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMainMenu))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainMenuActionPerformed
+        gt.interrupt();
+        this.setVisible(false);
+        Tetris.showStartup();
+    }//GEN-LAST:event_btnMainMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +189,7 @@ public class GameForm extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMainMenu;
     private javax.swing.JPanel gameAreaPlaceHolder;
     private javax.swing.JLabel levelDisplay;
     private javax.swing.JLabel scoreDisplay;

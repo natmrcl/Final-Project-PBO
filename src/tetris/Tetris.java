@@ -1,21 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tetris;
 
-/**
- *
- * @author User
- */
+import javax.swing.JOptionPane;
+
 public class Tetris {
 
-    /**
-     * @param args the command line arguments
-     */
+    private static GameForm gf;
+    private static StartupForm sf;
+    private static LeaderboardForm lf;
+    
+    private static AudioPlayer audio = new AudioPlayer();
+    
+    public static void start(){
+        gf.setVisible(true);
+        gf.startGame();
+    }
+    
+    public static void showLeaderboard(){
+        lf.setVisible(true);
+    }
+    
+    public static void showStartup(){
+        sf.setVisible(true);
+    }
+    
+    public static void gameOver(int score){
+        playGameover();
+        
+        String playerName = JOptionPane.showInputDialog("Game Over ! \n Please enter your name.");
+        //System.out.println(playerName);
+        gf.setVisible(false);
+        lf.addPlayer(playerName, score);
+    }
+    
+    public static void playClear(){
+        audio.playClearLine();
+    }
+    
+    public static void playGameover(){
+        audio.playtGameover();
+    }
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                gf = new GameForm();
+                sf = new StartupForm();
+                lf = new LeaderboardForm();
+
+                sf.setVisible(true); 
+            }
+        });    
     }
     
 }
