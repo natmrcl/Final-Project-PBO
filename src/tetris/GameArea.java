@@ -18,7 +18,7 @@ public class GameArea extends JPanel
     
     public GameArea(JPanel placeholder, int columns)
     {
-        placeholder.setVisible(false);
+        //placeholder.setVisible(false);
         this.setBounds(placeholder.getBounds());
         this.setBackground(placeholder.getBackground());
         this.setBorder(placeholder.getBorder());
@@ -26,8 +26,6 @@ public class GameArea extends JPanel
         gridColumns = columns;
         gridCellSize = this.getBounds().width/gridColumns;
         gridRows = this.getBounds().height/gridCellSize;
-        
-        background = new Color[gridRows][gridColumns];
         
         blocks = new TetrisBlock[]{
             new IShape(), new JShape(), new LShape(), new OShape(), new SShape(), new TShape(), new ZShape()
@@ -37,6 +35,9 @@ public class GameArea extends JPanel
 //    GameArea(JPanel gameAreaPlaceHolder) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
+    public void initBackgroundArray(){
+        background = new Color[gridRows][gridColumns];
+    }
     
     public void spawnBlock()
     {
@@ -189,6 +190,9 @@ public class GameArea extends JPanel
 	
                 repaint();
             }
+        }
+        if(linesCleared > 0){
+            Tetris.playClear();
         }
         return linesCleared;
     }

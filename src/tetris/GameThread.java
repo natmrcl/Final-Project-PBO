@@ -18,6 +18,9 @@ public class GameThread extends Thread
     {
         this.ga = ga;   
         this.gf = gf;
+        
+        gf.updateScore(score);
+        gf.updateLevel(level);
     }
     
     @Override
@@ -33,12 +36,14 @@ public class GameThread extends Thread
                     Thread.sleep(pause);
                 } 
                 catch (InterruptedException ex) {
-                    Logger.getLogger(GameThread.class.getName()).log(Level.SEVERE, null, ex);
+                    //Logger.getLogger(GameThread.class.getName()).log(Level.SEVERE, null, ex); 
+                      return;
                 } 
             }
             if(ga.isBlockOutBounds()){
-                System.out.println("Game Over");
-                break;
+                    //System.out.println("Game Over"); 
+                    Tetris.gameOver(score);
+                    break;
             }
             ga.moveBlockToBackground();
             score += ga.clearLines();
