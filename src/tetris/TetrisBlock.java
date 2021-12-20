@@ -11,7 +11,8 @@ public class TetrisBlock
     private int [][][] shapes;
     private int currentRotation;
     
-    private Color[] availableColors = {Color.green, Color.red, Color.blue};
+    private Color[] availableColors = {Color.green, Color.red, Color.blue, Color.cyan,
+                                       Color.darkGray, Color.pink, Color.yellow};
     
     public TetrisBlock(int[][] shape)
     {
