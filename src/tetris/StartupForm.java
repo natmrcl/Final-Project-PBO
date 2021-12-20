@@ -31,64 +31,61 @@ public class StartupForm extends javax.swing.JFrame {
         btnLeaderboard = new javax.swing.JButton();
         btnQuit = new javax.swing.JButton();
         btnAbout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnStart.setBackground(new java.awt.Color(255, 255, 255));
+        btnStart.setFont(new java.awt.Font("Trajan Pro", 0, 11)); // NOI18N
         btnStart.setText("Start Game");
+        btnStart.setBorder(null);
+        btnStart.setBorderPainted(false);
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartActionPerformed(evt);
             }
         });
+        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 100, 20));
 
+        btnLeaderboard.setBackground(new java.awt.Color(255, 255, 255));
+        btnLeaderboard.setFont(new java.awt.Font("Trajan Pro", 0, 11)); // NOI18N
         btnLeaderboard.setText("Leaderboard");
+        btnLeaderboard.setBorder(null);
+        btnLeaderboard.setBorderPainted(false);
         btnLeaderboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLeaderboardActionPerformed(evt);
             }
         });
+        getContentPane().add(btnLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 100, 20));
 
+        btnQuit.setBackground(new java.awt.Color(255, 255, 255));
+        btnQuit.setFont(new java.awt.Font("Trajan Pro", 0, 11)); // NOI18N
         btnQuit.setText("Quit");
+        btnQuit.setAutoscrolls(true);
+        btnQuit.setBorder(null);
         btnQuit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuitActionPerformed(evt);
             }
         });
+        getContentPane().add(btnQuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 90, 20));
 
+        btnAbout.setBackground(new java.awt.Color(255, 255, 255));
+        btnAbout.setFont(new java.awt.Font("Trajan Pro", 0, 11)); // NOI18N
         btnAbout.setText("About");
+        btnAbout.setBorder(null);
         btnAbout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAboutActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAbout, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 90, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnQuit, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLeaderboard, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnStart, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(123, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(158, Short.MAX_VALUE)
-                .addComponent(btnStart)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLeaderboard)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAbout)
-                .addGap(13, 13, 13)
-                .addComponent(btnQuit)
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tetris/w (4).png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 460));
 
         pack();
         setLocationRelativeTo(null);
@@ -153,5 +150,6 @@ public class StartupForm extends javax.swing.JFrame {
     private javax.swing.JButton btnLeaderboard;
     private javax.swing.JButton btnQuit;
     private javax.swing.JButton btnStart;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
