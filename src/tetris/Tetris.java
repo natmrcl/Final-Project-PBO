@@ -7,8 +7,12 @@ public class Tetris {
     private static GameForm gf;
     private static StartupForm sf;
     private static LeaderboardForm lf;
-    
+    private static AboutForm af;
     private static AudioPlayer audio = new AudioPlayer();
+    
+    public static void showAboutForm(){
+        af.setVisible(true);
+    }
     
     public static void start(){
         gf.setVisible(true);
@@ -47,6 +51,7 @@ public class Tetris {
                 gf = new GameForm();
                 sf = new StartupForm();
                 lf = new LeaderboardForm();
+                af = new AboutForm();
 
                 sf.setVisible(true); 
             }

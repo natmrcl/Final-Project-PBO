@@ -110,6 +110,7 @@ public class StartupForm extends javax.swing.JFrame {
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAboutActionPerformed
         this.setVisible(false);
+        Tetris.showAboutForm();
     }//GEN-LAST:event_btnAboutActionPerformed
 
     /**
